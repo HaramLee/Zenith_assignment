@@ -30,8 +30,7 @@ namespace ZenithDataLib.Model
         [ForeignKey("Id")]
         public ApplicationUser ApplicationUser { get; set; }
 
-
-        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [Display(Name = "Date Created")]
         [ScaffoldColumn(false)]
         public DateTime DateCreated { get; set; }

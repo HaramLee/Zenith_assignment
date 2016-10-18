@@ -52,16 +52,17 @@ namespace ZenithWebSite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EventId,FromDate,ToDate,ActivityId,Id,DateCreated,IsActive")] Event @event)
         {
+
             if (ModelState.IsValid)
             {
                 @event.Id = User.Identity.GetUserId();
+                @event.DateCreated = DateTime.Today;
                 db.Events.Add(@event);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.ActivityId = new SelectList(db.Activities, "ActivityId", "ActivityDec", @event.ActivityId);
-            ViewBag.Id = new SelectList(db.Users, "Id", "UserName", @event.Id);
             return View(@event);
         }
 
@@ -91,12 +92,13 @@ namespace ZenithWebSite.Controllers
         {
             if (ModelState.IsValid)
             {
+                @event.Id = User.Identity.GetUserId();
+                @event.DateCreated = DateTime.Today;
                 db.Entry(@event).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             ViewBag.ActivityId = new SelectList(db.Activities, "ActivityId", "ActivityDec", @event.ActivityId);
-            ViewBag.Id = new SelectList(db.Users, "Id", "UserName", @event.Id);
             return View(@event);
         }
 

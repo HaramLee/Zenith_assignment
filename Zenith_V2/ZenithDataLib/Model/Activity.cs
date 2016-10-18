@@ -18,7 +18,7 @@ namespace ZenithDataLib.Model
         [Display(Name = "Activity")]
         public string ActivityDec { get; set; }
 
-        //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [Display(Name = "Date Created")]
         [DataType(DataType.DateTime)]
         public DateTime DateCreated { get; set; }

@@ -3,6 +3,10 @@
 
 <h2>@ViewBag.Title Results</h2>
 
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
 <table>
     <tr>
         <th>Activity Name</th>
@@ -14,7 +18,10 @@
             <td>@item.ActivityDec</td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ActivityId })
-        </td>
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.ActivityId })
+            </td>
     </tr>
     }
 </table>

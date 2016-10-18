@@ -1,0 +1,16 @@
+C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\bin\Debug\ZenithDataLib.dll.config
+C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\bin\Debug\ZenithDataLib.dll
+C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\bin\Debug\ZenithDataLib.pdb
+C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\bin\Debug\EntityFramework.dll
+C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\bin\Debug\EntityFramework.xml
+C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\obj\Debug\ZenithDataLib.csprojResolveAssemblyReference.cache
+C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\obj\Debug\ZenithDataLib.Migrations.ZenithData.FirstMigration.resources
+C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\obj\Debug\ZenithDataLib.csproj.GenerateResource.Cache
+C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\obj\Debug\ZenithDataLib.dll
+C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\obj\Debug\ZenithDataLib.pdb
