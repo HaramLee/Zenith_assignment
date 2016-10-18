@@ -12,11 +12,15 @@ namespace ZenithDataLib.Model
     public class Activity
     {
         [Key]
+        [Display(Name = "Activity")]
         public int ActivityId { get; set; }
 
+        [Display(Name = "Activity")]
         public string ActivityDec { get; set; }
 
         //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Date Created")]
+        [DataType(DataType.DateTime)]
         public DateTime DateCreated { get; set; }
 
         public List<Event> Event { get; set; }

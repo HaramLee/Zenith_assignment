@@ -14,23 +14,29 @@ namespace ZenithDataLib.Model
         [Key]
         public int EventId { get; set; }
 
+        [Display(Name = "From")]
         public TimeSpan FromDate { get; set; }
 
+        [Display(Name = "To")]
         public TimeSpan ToDate { get; set; }
 
         [ForeignKey("Activity")]
+        [Display(Name = "Activity")]
         public int ActivityId { get; set; }
         public Activity Activity { get; set; }
 
-        
+        [Display(Name = "Creator")]
         public string Id { get; set; }
         [ForeignKey("Id")]
         public ApplicationUser ApplicationUser { get; set; }
 
 
         //[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Date Created")]
+        [ScaffoldColumn(false)]
         public DateTime DateCreated { get; set; }
 
+        [Display(Name = "Active")]
         public int IsActive { get; set; }
     }
 }

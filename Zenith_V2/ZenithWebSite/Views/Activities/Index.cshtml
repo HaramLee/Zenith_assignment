@@ -1,0 +1,14 @@
+﻿@model IEnumerable<ZenithDataLib.Model.Activity>
+
+@{
+    ViewBag.Title = "Activity Search";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm("Search", "Activities", FormMethod.Get))
+{
+    <input type="text" name="q" />
+    <input type="submit" value="search" />
+}

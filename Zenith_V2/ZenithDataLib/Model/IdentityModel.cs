@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Linq;
 using System.Security.Claims;
@@ -16,6 +17,7 @@ namespace ZenithDataLib.Model
     public class ApplicationUser : IdentityUser
     {
         public virtual List<Event> Event { get; set; }
+        [Display(Name ="Created By:")]
         public override string UserName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
