@@ -1,35 +1,57 @@
 ﻿@model IEnumerable<ZenithDataLib.Model.Event>
+
 @{
     ViewBag.Title = "Index";
 }
 
+@{
+    var datelist = (List<DateTime>)ViewData["MyData"]; // Cast the list
+}
+
 <br />
 <br />
-<table class="table">
+
+
+@foreach (var c in datelist) // Print the list
+{
+<h2>@Html.Label(c.ToString("MM/dd/yyyy"))</h2>
+
+    <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FromDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ToDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Activity.ActivityDec)
-        </th>
-        <th></th>
+
+    <th>
+        @Html.DisplayNameFor(model => model.FromDate)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.ToDate)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Activity.ActivityDec)
+    </th>
+   
     </tr>
+
     @foreach (var item in Model)
     {
+                
+        if(c.Date == item.DateCreated)
+        {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FromDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ToDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Activity.ActivityDec)
-            </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.FromDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Activity.ActivityDec)
+        </td>
+
         </tr>
+
+        }
+
     }
-</table>
+    </table>
+}

@@ -20,7 +20,7 @@ namespace ZenithWebSite.Controllers
             var events = db.Events.Include(a=> a.Activity).Include(b => b.ApplicationUser);
             var stuff = events.ToList();
             var send = new List<Event>();
-            
+            var datelist = new List<DateTime>();
 
             foreach(var x in stuff)
             {
@@ -29,13 +29,23 @@ namespace ZenithWebSite.Controllers
                 var week = new TimeSpan(6, 23, 59, 59);
                 if (diffPast <= week)
                 {
+
+                    if(!datelist.Contains(x.DateCreated))
+                        datelist.Add(x.DateCreated);
+
                     send.Add(x);
 
                 }
+
+
             }
+         
+            ViewData["MyData"] = datelist;
+
             return View(send);
         }
 
+      
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
