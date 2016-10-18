@@ -11,47 +11,54 @@
 <br />
 <br />
 
-
-@foreach (var c in datelist) // Print the list
-{
-<h2>@Html.Label(c.ToString("MM/dd/yyyy"))</h2>
-
-    <table class="table">
-    <tr>
-
-    <th>
-        @Html.DisplayNameFor(model => model.FromDate)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.ToDate)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.Activity.ActivityDec)
-    </th>
-   
-    </tr>
-
-    @foreach (var item in Model)
+<div class="home-container">
+    @foreach (var c in datelist) // Print the list
     {
-                
-        if(c.Date == item.DateCreated)
-        {
-        <tr>
+        <div class="headline">
 
-        <td>
-            @Html.DisplayFor(modelItem => item.FromDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ToDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Activity.ActivityDec)
-        </td>
+            @Html.Label(c.ToString("MM/dd/yyyy"))
 
-        </tr>
+        </div>
 
-        }
+        <table class="table-home">
 
+
+            <tr class="row-home">
+
+                <th class="column-home">
+                    @Html.DisplayNameFor(model => model.FromDate)
+                </th>
+                <th class="column-home">
+                    @Html.DisplayNameFor(model => model.ToDate)
+                </th>
+                <th class="column-home3">
+                    @Html.DisplayNameFor(model => model.Activity.ActivityDec)
+                </th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+
+                if (c.Date == item.DateCreated)
+                {
+                    <tr>
+
+                        <td class="column-home">
+                            @Html.DisplayFor(modelItem => item.FromDate)
+                        </td>
+                        <td class="column-home">
+                            @Html.DisplayFor(modelItem => item.ToDate)
+                        </td>
+                        <td class="column-home">
+                            @Html.DisplayFor(modelItem => item.Activity.ActivityDec)
+                        </td>
+
+                    </tr>
+
+                }
+
+            }
+        </table>
     }
-    </table>
-}
+</div>
