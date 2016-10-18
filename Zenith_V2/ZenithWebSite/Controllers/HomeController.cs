@@ -24,14 +24,14 @@ namespace ZenithWebSite.Controllers
 
             foreach(var x in stuff)
             {
-                var diffPast = today - x.DateCreated;
-                var diffFuture = x.DateCreated - today;
+                var diffPast = today - x.FromDate;
+                var diffFuture = x.FromDate - today;
                 var week = new TimeSpan(6, 23, 59, 59);
                 if (diffPast <= week)
                 {
 
-                    if(!datelist.Contains(x.DateCreated))
-                        datelist.Add(x.DateCreated);
+                    if(!datelist.Contains(x.FromDate))
+                        datelist.Add(x.FromDate);
 
                     send.Add(x);
 

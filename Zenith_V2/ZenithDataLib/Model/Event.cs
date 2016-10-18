@@ -15,10 +15,12 @@ namespace ZenithDataLib.Model
         public int EventId { get; set; }
 
         [Display(Name = "From")]
-        public TimeSpan FromDate { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
+        public DateTime FromDate { get; set; }
 
         [Display(Name = "To")]
-        public TimeSpan ToDate { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
+        public DateTime ToDate { get; set; }
 
         [ForeignKey("Activity")]
         [Display(Name = "Activity")]

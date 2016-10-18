@@ -109,21 +109,21 @@ namespace ZenithDataLib.Migrations.ZenithData
             TimeSpan FTime = new TimeSpan(08, 30, 0);
             TimeSpan TTime = new TimeSpan(10, 30, 0);
 
-            string Text = "27/09/2016";
-            DateTime myDate1 = DateTime.ParseExact(Text, "dd/MM/yyyy", null);
+            string Text = "09/27/2016";
+            DateTime myDate1 = DateTime.ParseExact(Text, "MM/dd/yyyy", null);
 
-            Text = "28/09/2016";
-            DateTime myDate2 = DateTime.ParseExact(Text, "dd/MM/yyyy", null);
+            Text = "09/28/2016";
+            DateTime myDate2 = DateTime.ParseExact(Text, "MM/dd/yyyy", null);
 
-            Text = "30/09/2016";
-            DateTime myDate3 = DateTime.ParseExact("30/09/2016", "dd/MM/yyyy", null);
+            Text = "09/29/2016";
+            DateTime myDate3 = DateTime.ParseExact(Text, "MM/dd/yyyy", null);
             //Convert.ToDateTime("2016/09/10");
 
             List<Event> events = new List<Event>();
             events.Add(new Model.Event
             {
-                FromDate = FTime,
-                ToDate = TTime,
+                FromDate = DateTime.ParseExact("09/27/2016 10:30", "MM/dd/yyyy HH:mm", null),
+                ToDate = DateTime.ParseExact("09/27/2016 11:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate1,
                 ApplicationUser = db.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Senior’s Golf Tournament")
@@ -131,8 +131,8 @@ namespace ZenithDataLib.Migrations.ZenithData
 
             events.Add(new Model.Event
             {
-                FromDate = FTime,
-                ToDate = TTime,
+                FromDate = DateTime.ParseExact("09/28/2016 10:30", "MM/dd/yyyy HH:mm", null),
+                ToDate = DateTime.ParseExact("09/28/2016 11:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate2,
                 ApplicationUser = db.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Leadership General Assembly Meeting")
@@ -140,8 +140,8 @@ namespace ZenithDataLib.Migrations.ZenithData
 
             events.Add(new Model.Event
             {
-                FromDate = FTime,
-                ToDate = TTime,
+                FromDate = DateTime.ParseExact("09/29/2016 10:30", "MM/dd/yyyy HH:mm", null),
+                ToDate = DateTime.ParseExact("09/29/2016 11:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
                 ApplicationUser = db.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Youth Bowling Tournament")

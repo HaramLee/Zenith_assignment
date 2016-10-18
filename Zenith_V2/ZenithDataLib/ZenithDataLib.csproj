@@ -59,9 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Migrations\ZenithData\201610160305440_FirstMigration.cs" />
-    <Compile Include="Migrations\ZenithData\201610160305440_FirstMigration.Designer.cs">
-      <DependentUpon>201610160305440_FirstMigration.cs</DependentUpon>
+    <Compile Include="Migrations\ZenithData\201610181823265_FirstMigration.cs" />
+    <Compile Include="Migrations\ZenithData\201610181823265_FirstMigration.Designer.cs">
+      <DependentUpon>201610181823265_FirstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ZenithData\Configuration.cs" />
     <Compile Include="Model\Activity.cs" />
@@ -77,8 +77,8 @@
     <Content Include="Doc\Migration Keys.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\ZenithData\201610160305440_FirstMigration.resx">
-      <DependentUpon>201610160305440_FirstMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\ZenithData\201610181823265_FirstMigration.resx">
+      <DependentUpon>201610181823265_FirstMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

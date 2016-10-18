@@ -5,3 +5,7 @@ Enable-Migrations -ContextTypeName ApplicationDbContext -MigrationsDirectory Mig
 Add-Migration -ConfigurationTypeName ZenithDataLib.Migrations.ZenithData.Configuration "FirstMigration"
 
 Update-Database -ConfigurationTypeName ZenithDataLib.Migrations.ZenithData.Configuration
+
+
+
+
