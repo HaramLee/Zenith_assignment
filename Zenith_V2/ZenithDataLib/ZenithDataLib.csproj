@@ -65,6 +65,8 @@
     </Compile>
     <Compile Include="Migrations\ZenithData\Configuration.cs" />
     <Compile Include="Model\Activity.cs" />
+    <Compile Include="Model\CustomValidation\DateDifference.cs" />
+    <Compile Include="Model\CustomValidation\FromDateAfterToDate.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="Model\IdentityModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

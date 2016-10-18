@@ -17,20 +17,33 @@ namespace ZenithWebSite.Controllers
         public ActionResult Index()
         {
             var today = DateTime.Now;
-            var events = db.Events.Include(a=> a.Activity).Include(b => b.ApplicationUser);
+            var events = db.Events.Include(a => a.Activity).Include(b => b.ApplicationUser);
             var stuff = events.ToList();
             var send = new List<Event>();
             var datelist = new List<DateTime>();
+            var someDay = today;
+            var week = new TimeSpan(6, 23, 59, 59);
 
-            foreach(var x in stuff)
+            if (today.DayOfWeek != DayOfWeek.Monday)
             {
-                var diffPast = today - x.FromDate;
-                var diffFuture = x.FromDate - today;
-                var week = new TimeSpan(6, 23, 59, 59);
-                if (diffPast <= week)
+                while (true)
+                {
+                    someDay = someDay.AddDays(-1);            //go backwards 1 day
+                    if (someDay.DayOfWeek == DayOfWeek.Monday)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            var lastMonday = someDay.Date;
+            foreach (var x in stuff)
+            {
+
+                if (x.FromDate >= lastMonday && x.FromDate <= lastMonday + week)
                 {
 
-                    if(!datelist.Contains(x.FromDate))
+                    if (!datelist.Contains(x.FromDate))
                         datelist.Add(x.FromDate);
 
                     send.Add(x);
@@ -39,13 +52,13 @@ namespace ZenithWebSite.Controllers
 
 
             }
-         
+            datelist.Sort();
             ViewData["MyData"] = datelist;
 
             return View(send);
         }
 
-      
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

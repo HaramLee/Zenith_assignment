@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZenithDataLib.Model.CustomValidation;
 
 namespace ZenithDataLib.Model
 {
@@ -20,6 +21,8 @@ namespace ZenithDataLib.Model
 
         [Display(Name = "To")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
+        [DateDifference]
+        [FromDateAfterToDate]
         public DateTime ToDate { get; set; }
 
         [ForeignKey("Activity")]
