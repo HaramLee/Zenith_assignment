@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
+    var desc = ViewBag.ActivityDec;
 }
 
 <h2>Details</h2>
@@ -15,7 +16,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Activity.ActivityDec)
+            @ViewBag.description
         </dd>
 
         <dt>
@@ -23,7 +24,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ApplicationUser.UserName)
+            @ViewBag.user
         </dd>
 
         <dt>

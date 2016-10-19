@@ -11,6 +11,7 @@ using ZenithDataLib.Model;
 
 namespace ZenithWebSite.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class EventsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -30,6 +31,12 @@ namespace ZenithWebSite.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Event @event = db.Events.Find(id);
+            Activity activty = db.Activities.Find(@event.ActivityId);
+            ApplicationUser user = db.Users.Find(@event.Id);
+            var desc = activty.ActivityDec;
+            var loginUser = user.UserName;
+            ViewBag.description = desc;
+            ViewBag.user = loginUser;
             if (@event == null)
             {
                 return HttpNotFound();
@@ -110,6 +117,12 @@ namespace ZenithWebSite.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Event @event = db.Events.Find(id);
+            Activity activty = db.Activities.Find(@event.ActivityId);
+            ApplicationUser user = db.Users.Find(@event.Id);
+            var desc = activty.ActivityDec;
+            var loginUser = user.UserName;
+            ViewBag.description = desc;
+            ViewBag.user = loginUser;
             if (@event == null)
             {
                 return HttpNotFound();

@@ -10,6 +10,7 @@ using ZenithDataLib.Model;
 
 namespace ZenithWebSite.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ActivitiesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -30,21 +31,6 @@ namespace ZenithWebSite.Controllers
             return View(list);
         }
 
-        // GET: Activities/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Activity activity = db.Activities.Find(id);
-            if (activity == null)
-            {
-                return HttpNotFound();
-            }
-            return View(activity);
-        }
-
         // GET: Activities/Create
         public ActionResult Create()
         {
@@ -60,6 +46,8 @@ namespace ZenithWebSite.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                activity.DateCreated = DateTime.Today;
                 db.Activities.Add(activity);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -92,6 +80,7 @@ namespace ZenithWebSite.Controllers
         {
             if (ModelState.IsValid)
             {
+                activity.DateCreated = DateTime.Today;
                 db.Entry(activity).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

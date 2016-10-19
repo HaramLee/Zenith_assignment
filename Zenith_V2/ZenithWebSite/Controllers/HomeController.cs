@@ -20,7 +20,7 @@ namespace ZenithWebSite.Controllers
             var events = db.Events.Include(a => a.Activity).Include(b => b.ApplicationUser);
             var stuff = events.ToList();
             var send = new List<Event>();
-            var datelist = new List<DateTime>();
+            var datelist = new List<String>();
             var someDay = today;
             var week = new TimeSpan(6, 23, 59, 59);
 
@@ -40,22 +40,23 @@ namespace ZenithWebSite.Controllers
             foreach (var x in stuff)
             {
 
-                if (x.FromDate >= lastMonday && x.FromDate <= lastMonday + week)
+                if (x.FromDate >= lastMonday && x.FromDate <= lastMonday + week && x.IsActive != 1)
                 {
 
-                    if (!datelist.Contains(x.FromDate))
-                        datelist.Add(x.FromDate);
+                    if (!datelist.Contains(x.FromDate.ToString("MM/dd/yyyy")))
+                        datelist.Add(x.FromDate.ToString("MM/dd/yyyy"));
 
                     send.Add(x);
 
                 }
-
-
             }
+
+            List<Event> SortedList = send.OrderBy(o => o.FromDate).ToList();
             datelist.Sort();
+     
             ViewData["MyData"] = datelist;
 
-            return View(send);
+            return View(SortedList);
         }
 
 

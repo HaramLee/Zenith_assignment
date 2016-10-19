@@ -5,7 +5,7 @@
 }
 
 @{
-    var datelist = (List<DateTime>)ViewData["MyData"]; // Cast the list
+    var datelist = (List<String>)ViewData["MyData"]; // Cast the list
 }
 
 <br />
@@ -16,7 +16,7 @@
     {
         <div class="headline">
 
-            @Html.Label(c.ToString("MM/dd/yyyy"))
+            @Html.Label(c)
 
         </div>
 
@@ -40,7 +40,7 @@
             @foreach (var item in Model)
             {
 
-                if (c == item.FromDate)
+                if (c == item.FromDate.ToString("MM/dd/yyyy"))
                 {
                     <tr>
 
