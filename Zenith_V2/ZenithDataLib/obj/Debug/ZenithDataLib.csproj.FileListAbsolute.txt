@@ -14,3 +14,19 @@ C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\obj\Debug\Ze
 C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\obj\Debug\ZenithDataLib.csproj.GenerateResource.Cache
 C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\obj\Debug\ZenithDataLib.dll
 C:\Users\Haram Lee\Desktop\Git Repositories\Zenith_V2\ZenithDataLib\obj\Debug\ZenithDataLib.pdb
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Debug\ZenithDataLib.dll.config
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Debug\ZenithDataLib.dll
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Debug\ZenithDataLib.pdb
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Debug\EntityFramework.dll
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Debug\EntityFramework.xml
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\obj\Debug\ZenithDataLib.csprojResolveAssemblyReference.cache
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\obj\Debug\ZenithDataLib.Migrations.ZenithData.FirstMigration.resources
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\obj\Debug\ZenithDataLib.csproj.GenerateResource.Cache
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\obj\Debug\ZenithDataLib.dll
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\obj\Debug\ZenithDataLib.pdb
