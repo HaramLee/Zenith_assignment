@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace ZenithDataLib.Model
         [Display(Name = "To")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
         [DateDifference]
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         [FromDateAfterToDate]
         public DateTime ToDate { get; set; }
 
@@ -43,7 +44,7 @@ namespace ZenithDataLib.Model
         public DateTime DateCreated { get; set; }
 
         [Display(Name = "Active")]
-        public int IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }
 

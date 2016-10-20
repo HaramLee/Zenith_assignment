@@ -17,7 +17,7 @@ namespace ZenithDataLib.Model
     public class ApplicationUser : IdentityUser
     {
         public virtual List<Event> Event { get; set; }
-        [Display(Name ="Created By:")]
+        [Display(Name ="Created By")]
         public override string UserName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

@@ -12,7 +12,7 @@ namespace ZenithDataLib.Model.CustomValidation
         DateTime _Before;
         DateTime _After;
 
-        public DateDifference() : base ("Times are too far apart")
+        public DateDifference() : base ("Times are too far apart and they both must be on the same day.")
         {
 
         }

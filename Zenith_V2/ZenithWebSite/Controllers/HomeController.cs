@@ -40,7 +40,7 @@ namespace ZenithWebSite.Controllers
             foreach (var x in stuff)
             {
 
-                if (x.FromDate >= lastMonday && x.FromDate <= lastMonday + week && x.IsActive != 1)
+                if (x.FromDate >= lastMonday && x.FromDate <= lastMonday + week && x.IsActive == true)
                 {
 
                     if (!datelist.Contains(x.FromDate.ToString("MM/dd/yyyy")))

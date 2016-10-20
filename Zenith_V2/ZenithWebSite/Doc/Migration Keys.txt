@@ -1,0 +1,11 @@
+﻿ApplicationDbContext
+======================
+Enable-Migrations -ContextTypeName ApplicationDbContext -MigrationsDirectory Migrations\ZenithData
+
+Add-Migration -ConfigurationTypeName ZenithWebSite.Migrations.ZenithData.Configuration "FirstMigration"
+
+Update-Database -ConfigurationTypeName ZenithWebSite.Migrations.ZenithData.Configuration
+
+
+
+

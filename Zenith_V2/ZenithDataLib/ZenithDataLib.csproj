@@ -59,21 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Migrations\ZenithData\201610181823265_FirstMigration.cs" />
-    <Compile Include="Migrations\ZenithData\201610181823265_FirstMigration.Designer.cs">
-      <DependentUpon>201610181823265_FirstMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ZenithData\201610201922341_CorrectData.cs" />
-    <Compile Include="Migrations\ZenithData\201610201922341_CorrectData.Designer.cs">
-      <DependentUpon>201610201922341_CorrectData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ZenithData\201610201932248_CorrectedSyntaxError.cs" />
-    <Compile Include="Migrations\ZenithData\201610201932248_CorrectedSyntaxError.Designer.cs">
-      <DependentUpon>201610201932248_CorrectedSyntaxError.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ZenithData\201610201942367_NextWeek.cs" />
-    <Compile Include="Migrations\ZenithData\201610201942367_NextWeek.Designer.cs">
-      <DependentUpon>201610201942367_NextWeek.cs</DependentUpon>
+    <Compile Include="Migrations\ZenithData\201610202150291_FirstMigration.cs" />
+    <Compile Include="Migrations\ZenithData\201610202150291_FirstMigration.Designer.cs">
+      <DependentUpon>201610202150291_FirstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ZenithData\Configuration.cs" />
     <Compile Include="Model\Activity.cs" />
@@ -88,20 +76,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Doc\Migration Keys.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\ZenithData\201610181823265_FirstMigration.resx">
-      <DependentUpon>201610181823265_FirstMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\ZenithData\201610201922341_CorrectData.resx">
-      <DependentUpon>201610201922341_CorrectData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\ZenithData\201610201932248_CorrectedSyntaxError.resx">
-      <DependentUpon>201610201932248_CorrectedSyntaxError.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\ZenithData\201610201942367_NextWeek.resx">
-      <DependentUpon>201610201942367_NextWeek.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\ZenithData\201610202150291_FirstMigration.resx">
+      <DependentUpon>201610202150291_FirstMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
