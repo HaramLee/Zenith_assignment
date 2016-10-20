@@ -51,6 +51,7 @@ namespace ZenithWebSite.Controllers
         {
             if (ModelState.IsValid)
             {
+                activity.DateCreated = DateTime.Today;
                 db.Activities.Add(activity);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -83,6 +84,7 @@ namespace ZenithWebSite.Controllers
         {
             if (ModelState.IsValid)
             {
+                activity.DateCreated = DateTime.Today;
                 db.Entry(activity).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
