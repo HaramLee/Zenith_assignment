@@ -59,11 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="Migrations\ZenithData\201610202150291_FirstMigration.cs" />
-    <Compile Include="Migrations\ZenithData\201610202150291_FirstMigration.Designer.cs">
-      <DependentUpon>201610202150291_FirstMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\ZenithData\Configuration.cs" />
     <Compile Include="Model\Activity.cs" />
     <Compile Include="Model\CustomValidation\DateDifference.cs" />
     <Compile Include="Model\CustomValidation\FromDateAfterToDate.cs" />
@@ -74,11 +69,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\ZenithData\201610202150291_FirstMigration.resx">
-      <DependentUpon>201610202150291_FirstMigration.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

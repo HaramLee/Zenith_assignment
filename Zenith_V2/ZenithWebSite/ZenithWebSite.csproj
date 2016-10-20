@@ -189,6 +189,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\ZenithData\201610202204106_FirstMigration.cs" />
+    <Compile Include="Migrations\ZenithData\201610202204106_FirstMigration.Designer.cs">
+      <DependentUpon>201610202204106_FirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ZenithData\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -370,6 +375,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\ZenithData\201610202204106_FirstMigration.resx">
+      <DependentUpon>201610202204106_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
