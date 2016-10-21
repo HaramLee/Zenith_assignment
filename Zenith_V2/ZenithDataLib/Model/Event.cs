@@ -18,11 +18,11 @@ namespace ZenithDataLib.Model
 
         [Display(Name = "From")]
         [DataType(DataType.DateTime)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm tt}")]
         public DateTime FromDate { get; set; }
 
         [Display(Name = "To")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm tt}")]
         [DateDifference]
         [DataType(DataType.DateTime)]
         [FromDateAfterToDate]

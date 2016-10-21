@@ -43,8 +43,8 @@ namespace ZenithWebSite.Controllers
                 if (x.FromDate >= lastMonday && x.FromDate <= lastMonday + week && x.IsActive == true)
                 {
 
-                    if (!datelist.Contains(x.FromDate.ToString("MM/dd/yyyy")))
-                        datelist.Add(x.FromDate.ToString("MM/dd/yyyy"));
+                    if (!datelist.Contains(x.FromDate.ToString("dddd MMMM dd,yyyy")))
+                        datelist.Add(x.FromDate.ToString("dddd MMMM dd,yyyy"));
 
                     send.Add(x);
 
@@ -52,9 +52,10 @@ namespace ZenithWebSite.Controllers
             }
 
             List<Event> SortedList = send.OrderBy(o => o.FromDate).ToList();
-            datelist.Sort();
-     
-            ViewData["MyData"] = datelist;
+            
+            var orderedList = datelist.OrderBy(x => DateTime.Parse(x)).ToList();
+
+            ViewData["MyData"] = orderedList;
 
             return View(SortedList);
         }

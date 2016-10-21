@@ -22,6 +22,7 @@ namespace ZenithWebSite
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/jquery-3.1.1.js",
+                      "~/Scripts/moment.js",
                       "~/Scripts/bootstrap-datetimepicker.js",
                       "~/Scripts/respond.js"));
 

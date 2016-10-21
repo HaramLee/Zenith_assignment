@@ -40,6 +40,7 @@ textarea {
 
 .column-home {
     width: 25%;
+    padding: 5px;
     border: 0.5px solid black;
 }
 
@@ -50,7 +51,8 @@ textarea {
 
 .headline {
     border: 0.5px solid black;
-    background-color:burlywood;
+    background-color:#E0FFFF;
+    padding-top:5px;
     text-align:center;
     width: 100%;
 }

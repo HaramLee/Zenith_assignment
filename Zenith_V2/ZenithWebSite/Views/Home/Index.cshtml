@@ -22,34 +22,17 @@
 
         <table class="table-home">
 
-
-            <tr class="row-home">
-
-                <th class="column-home">
-                    @Html.DisplayNameFor(model => model.FromDate)
-                </th>
-                <th class="column-home">
-                    @Html.DisplayNameFor(model => model.ToDate)
-                </th>
-                <th class="column-home3">
-                    @Html.DisplayNameFor(model => model.Activity.ActivityDec)
-                </th>
-
-            </tr>
-
             @foreach (var item in Model)
             {
 
-                if (c == item.FromDate.ToString("MM/dd/yyyy"))
+                if (c == item.FromDate.ToString("dddd MMMM dd,yyyy"))
                 {
                     <tr>
 
                         <td class="column-home">
-                            @Html.DisplayFor(modelItem => item.FromDate)
+                            @Html.DisplayFor(modelItem => item.FromDate) - @Html.DisplayFor(modelItem => item.ToDate)
                         </td>
-                        <td class="column-home">
-                            @Html.DisplayFor(modelItem => item.ToDate)
-                        </td>
+                        
                         <td class="column-home">
                             @Html.DisplayFor(modelItem => item.Activity.ActivityDec)
                         </td>
