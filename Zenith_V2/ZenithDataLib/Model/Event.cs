@@ -16,13 +16,13 @@ namespace ZenithDataLib.Model
         [Key]
         public int EventId { get; set; }
 
-        [Display(Name = "From")]
+        [Display(Name = "Date & From time")]
         [DataType(DataType.DateTime)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm tt}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy hh:mm tt}")]
         public DateTime FromDate { get; set; }
 
-        [Display(Name = "To")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:hh:mm tt}")]
+        [Display(Name = "Date & To time")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy hh:mm tt}")]
         [DateDifference]
         [DataType(DataType.DateTime)]
         [FromDateAfterToDate]

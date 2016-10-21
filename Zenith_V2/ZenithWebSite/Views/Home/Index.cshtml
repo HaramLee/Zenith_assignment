@@ -29,8 +29,8 @@
                 {
                     <tr>
 
-                        <td class="column-home">
-                            @Html.DisplayFor(modelItem => item.FromDate) - @Html.DisplayFor(modelItem => item.ToDate)
+                        <td class="column-home toFromTime">
+                            @Html.Label(item.FromDate.ToString("hh:mm tt")) - @Html.Label(item.ToDate.ToString("hh:mm tt"))
                         </td>
                         
                         <td class="column-home">

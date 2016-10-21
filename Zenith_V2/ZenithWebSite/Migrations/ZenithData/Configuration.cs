@@ -29,7 +29,7 @@ namespace ZenithWebSite.Migrations.ZenithData
 
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
-            string[] emails = { "a@a.a", "m@m.c" };
+            string[] emails = { "a@a.a", "m@m.m" };
             string[] userNames = { "a", "m" };
 
             if (userManager.FindByEmail(emails[0]) == null)
@@ -83,79 +83,66 @@ namespace ZenithWebSite.Migrations.ZenithData
             List<Activity> activities = new List<Activity>();
             activities.Add(new Activity()
             {
-                ActivityId = 1,
                 ActivityDec = "Senior’s Golf Tournament",
                 DateCreated = myDate1
             });
             activities.Add(new Activity()
             {
-                ActivityId = 2,
                 ActivityDec = "Leadership General Assembly Meeting",
                 DateCreated = myDate2
             });
             activities.Add(new Activity()
             {
-                ActivityId = 3,
                 ActivityDec = "Youth Bowling Tournament",
                 DateCreated = myDate3
             });
             activities.Add(new Activity()
             {
-                ActivityId = 4,
                 ActivityDec = "Young ladies cooking lessons",
                 DateCreated = myDate3
             });
             activities.Add(new Activity()
             {
-                ActivityId = 5,
                 ActivityDec = "Youth craft lessons",
                 DateCreated = myDate3
             });
             activities.Add(new Activity()
             {
-                ActivityId = 6,
                 ActivityDec = "Youth choir practice",
                 DateCreated = myDate3
             });
             activities.Add(new Activity()
             {
-                ActivityId = 7,
                 ActivityDec = "Lunch",
                 DateCreated = myDate3
             });
             activities.Add(new Activity()
             {
-                ActivityId = 8,
                 ActivityDec = "Pancake Breakfast",
                 DateCreated = myDate3
             });
             activities.Add(new Activity()
             {
-                ActivityId = 9,
                 ActivityDec = "Swimming Lessons for the youth",
                 DateCreated = myDate3
             });
             activities.Add(new Activity()
             {
-                ActivityId = 10,
                 ActivityDec = "Swimming Exercise for parents",
                 DateCreated = myDate3
             });
             activities.Add(new Activity()
             {
-                ActivityId = 11,
                 ActivityDec = "Bingo Tournament",
                 DateCreated = myDate3
             });
             activities.Add(new Activity()
             {
-                ActivityId = 12,
                 ActivityDec = "BBQ Lunch",
                 DateCreated = myDate3
             });
             activities.Add(new Activity()
             {
-                ActivityId = 13,
                 ActivityDec = "Garage Sale",
                 DateCreated = myDate3
             });
@@ -179,9 +166,8 @@ namespace ZenithWebSite.Migrations.ZenithData
             //Convert.ToDateTime("2016/09/10");
 
             List<Event> events = new List<Event>();
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 1,
                 FromDate = DateTime.ParseExact("10/18/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/18/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate1,
@@ -189,9 +175,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Senior’s Golf Tournament")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 2,
                 FromDate = DateTime.ParseExact("10/19/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/19/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate2,
@@ -199,9 +184,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Leadership General Assembly Meeting")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 3,
                 FromDate = DateTime.ParseExact("10/21/2016 17:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/21/2016 19:15", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -209,9 +193,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Youth Bowling Tournament")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 4,
                 FromDate = DateTime.ParseExact("10/21/2016 19:00", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/21/2016 20:00", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -219,9 +202,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Young ladies cooking lessons")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 5,
                 FromDate = DateTime.ParseExact("10/22/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/22/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -229,9 +211,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Youth craft lessons")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 6,
                 FromDate = DateTime.ParseExact("10/22/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/22/2016 12:00", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -239,9 +220,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Youth choir practice")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 7,
                 FromDate = DateTime.ParseExact("10/22/2016 12:00", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/22/2016 13:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -249,9 +229,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Lunch")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 8,
                 FromDate = DateTime.ParseExact("10/23/2016 07:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/23/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -259,9 +238,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Pancake Breakfast")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 9,
                 FromDate = DateTime.ParseExact("10/23/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/23/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -269,9 +247,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Swimming Lessons for the youth")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 10,
                 FromDate = DateTime.ParseExact("10/23/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/23/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -279,9 +256,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Swimming Exercise for parents")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 11,
                 FromDate = DateTime.ParseExact("10/23/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/23/2016 12:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -289,9 +265,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Bingo Tournament")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 12,
                 FromDate = DateTime.ParseExact("10/23/2016 12:00", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/23/2016 13:00", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -299,9 +274,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "BBQ Lunch")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 13,
                 FromDate = DateTime.ParseExact("10/23/2016 13:00", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/23/2016 18:00", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -311,9 +285,8 @@ namespace ZenithWebSite.Migrations.ZenithData
 
             //Next week
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 14,
                 FromDate = DateTime.ParseExact("10/25/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/25/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate1,
@@ -321,9 +294,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Senior’s Golf Tournament")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 15,
                 FromDate = DateTime.ParseExact("10/26/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/26/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate2,
@@ -331,9 +303,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Leadership General Assembly Meeting")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 16,
                 FromDate = DateTime.ParseExact("10/28/2016 17:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/28/2016 19:15", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -341,9 +312,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Youth Bowling Tournament")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 17,
                 FromDate = DateTime.ParseExact("10/28/2016 19:00", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/28/2016 20:00", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -351,9 +321,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Young ladies cooking lessons")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 18,
                 FromDate = DateTime.ParseExact("10/29/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/29/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -361,9 +330,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Youth craft lessons")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 19,
                 FromDate = DateTime.ParseExact("10/29/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/29/2016 12:00", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -371,9 +339,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Youth choir practice")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 20,
                 FromDate = DateTime.ParseExact("10/29/2016 12:00", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/29/2016 13:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -381,9 +348,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Lunch")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 21,
                 FromDate = DateTime.ParseExact("10/30/2016 07:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/30/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -391,9 +357,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Pancake Breakfast")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 22,
                 FromDate = DateTime.ParseExact("10/30/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/30/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -401,9 +366,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Swimming Lessons for the youth")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 23,
                 FromDate = DateTime.ParseExact("10/30/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/30/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -411,9 +375,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Swimming Exercise for parents")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 24,
                 FromDate = DateTime.ParseExact("10/30/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/30/2016 12:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -421,9 +384,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "Bingo Tournament")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 25,
                 FromDate = DateTime.ParseExact("10/30/2016 12:00", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/30/2016 13:00", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
@@ -431,9 +393,8 @@ namespace ZenithWebSite.Migrations.ZenithData
                 Activity = db.Activities.First(t => t.ActivityDec == "BBQ Lunch")
             });
 
-            events.Add(new ZenithDataLib.Model.Event
+            events.Add(new Event
             {
-                EventId = 26,
                 FromDate = DateTime.ParseExact("10/30/2016 13:00", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/30/2016 18:00", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,

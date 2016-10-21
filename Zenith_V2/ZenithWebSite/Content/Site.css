@@ -42,6 +42,8 @@ textarea {
     width: 25%;
     padding: 5px;
     border: 0.5px solid black;
+    font-family: 'Times New Roman';
+   
 }
 
 .column-home3 {
@@ -57,3 +59,8 @@ textarea {
     width: 100%;
 }
 
+.toFromTime label {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    font-weight:normal; 
+}

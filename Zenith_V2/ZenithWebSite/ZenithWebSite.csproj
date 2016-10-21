@@ -191,9 +191,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\ZenithData\201610210704318_FirstMigration.cs" />
-    <Compile Include="Migrations\ZenithData\201610210704318_FirstMigration.Designer.cs">
-      <DependentUpon>201610210704318_FirstMigration.cs</DependentUpon>
+    <Compile Include="Migrations\ZenithData\201610212025401_FirstMigration.cs" />
+    <Compile Include="Migrations\ZenithData\201610212025401_FirstMigration.Designer.cs">
+      <DependentUpon>201610212025401_FirstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ZenithData\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -210,7 +210,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Doc\Migration Keys.txt" />
-    <Content Include="Doc\TextFile1.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -301,13 +300,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\ZenithSocietyFinal - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ZenithWebSite20161020084640 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ZenithWebSite20161020095513 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ZenithWebSite20161020100637 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ZenithWebSite20161020104027 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ZenithWebSite20161020105229 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ZenithWebSite20161020110816 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ZenithWebSite20161021012952 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ZenithWebSite20161021120621 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\ZenithWebSiteFinal - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\ZenithWebSiteLeeHamade - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
@@ -390,12 +392,12 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\ZenithData\201610210704318_FirstMigration.resx">
-      <DependentUpon>201610210704318_FirstMigration.cs</DependentUpon>
-    </EmbeddedResource>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <EmbeddedResource Include="Migrations\ZenithData\201610212025401_FirstMigration.resx">
+      <DependentUpon>201610212025401_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
