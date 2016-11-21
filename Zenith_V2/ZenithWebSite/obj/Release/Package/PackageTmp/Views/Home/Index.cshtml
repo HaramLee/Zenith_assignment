@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ZenithDataLib.Model.Event>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@{
+    var datelist = (List<String>)ViewData["MyData"]; // Cast the list
+}
+
+<br />
+<br />
+
+<div class="home-container">
+    @foreach (var c in datelist) // Print the list
+    {
+        <div class="headline">
+
+            @Html.Label(c)
+
+        </div>
+
+        <table class="table-home">
+
+            @foreach (var item in Model)
+            {
+
+                if (c == item.FromDate.ToString("dddd MMMM dd,yyyy"))
+                {
+                    <tr>
+
+                        <td class="column-home toFromTime">
+                            @Html.Label(item.FromDate.ToString("hh:mm tt")) - @Html.Label(item.ToDate.ToString("hh:mm tt"))
+                        </td>
+                        
+                        <td class="column-home">
+                            @Html.DisplayFor(modelItem => item.Activity.ActivityDec)
+                        </td>
+
+                    </tr>
+
+                }
+
+            }
+        </table>
+    }
+</div>

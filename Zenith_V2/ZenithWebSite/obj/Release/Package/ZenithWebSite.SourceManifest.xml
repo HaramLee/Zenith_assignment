@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithWebSite\obj\Release\Package\PackageTmp" />
+  <setAcl path="C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithWebSite\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithWebSite\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+</sitemanifest>

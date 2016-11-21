@@ -1,0 +1,13 @@
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Release\ZenithDataLib.dll.config
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Release\ZenithDataLib.dll
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Release\ZenithDataLib.pdb
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Release\EntityFramework.dll
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Release\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Release\EntityFramework.xml
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Release\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\obj\Release\ZenithDataLib.dll
+C:\Users\Jordan H\Desktop\Term4\COMP 4976 ASP .NET\Assign1\Zenith_assignment\Zenith_V2\ZenithDataLib\obj\Release\ZenithDataLib.pdb
