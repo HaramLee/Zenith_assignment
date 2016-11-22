@@ -1,4 +1,4 @@
-﻿dotnet ef migrations add FirstMigration 
-
+﻿dotnet ef migrations add FirstMigration -c ApplicationDbContext
+dotnet ef migrations add SecondMigration -c ZenithContext
 
 dotnet ef database update

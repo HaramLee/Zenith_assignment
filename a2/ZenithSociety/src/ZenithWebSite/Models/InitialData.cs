@@ -10,22 +10,42 @@ namespace ZenithWebSite.Models
 {
     public class InitialData
     {
-        public static void Initialize(ApplicationDbContext context)
-        {/*
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
-            if (!roleManager.RoleExistsAsync("Admin"))
-                roleManager.CreateAsync(new IdentityRole("Admin"));
+        public static void Initialize(ApplicationDbContext context, ZenithContext z)
+        {
 
-            if (!roleManager.RoleExists("Member"))
-                roleManager.Create(new IdentityRole("Member"));
+            //context.context.Activities.Add(t => t.ActivityId, getActivities().ToArray());
+            getActivities(z);
+            //context.Add(t => t.ActivityId, getActivities(context).ToArray());
+            z.SaveChanges();
 
-            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            //context.db.Events.Add(p => p.EventId, getEvents(context).ToArray());
+            getEvents(z, context);
+            z.SaveChanges();
 
+            initializeRoles(context);
+        }
+
+        private static async void initializeRoles(ApplicationDbContext context)
+        {
+            var roleStore = new RoleStore<IdentityRole>(context);
+            var adminRole = await roleStore.FindByNameAsync("Admin");
+            if(adminRole == null)
+            {
+                adminRole = new IdentityRole("Admin");
+                await roleStore.CreateAsync(adminRole);
+            }
+            var memberRole = await roleStore.FindByNameAsync("Member");
+            if (memberRole == null)
+            {
+                memberRole = new IdentityRole("Member");
+                await roleStore.CreateAsync(memberRole);
+            }
+
+            var userStore = new UserStore<ApplicationUser>(context);
             string[] emails = { "a@a.a", "m@m.m" };
             string[] userNames = { "a", "m" };
-
-            if (userManager.FindByEmail(emails[0]) == null)
+            if(userStore.FindByEmailAsync(emails[0]) == null)
             {
                 var user = new ApplicationUser
                 {
@@ -34,11 +54,13 @@ namespace ZenithWebSite.Models
                     FirstName = userNames[0],
                     LastName = userNames[0],
                 };
-                var result = userManager.Create(user, "P@$$w0rd");
-                if (result.Succeeded)
-                    userManager.AddToRole(userManager.FindByEmail(user.Email).Id, "Admin");
+                var result = userStore.CreateAsync(user);
+
+                var password = new PasswordHasher<ApplicationUser>();
+                password.HashPassword(user, "P@$$w0rd");
             }
-            if (userManager.FindByEmail(emails[1]) == null)
+
+            if(userStore.FindByEmailAsync(emails[1]) == null)
             {
                 var user = new ApplicationUser
                 {
@@ -47,22 +69,14 @@ namespace ZenithWebSite.Models
                     FirstName = userNames[1],
                     LastName = userNames[1],
                 };
-                var result = userManager.Create(user, "P@$$w0rd");
-                if (result.Succeeded)
-                    userManager.AddToRole(userManager.FindByEmail(user.Email).Id, "Member");
-            }*/
-            
-            //context.context.Activities.Add(t => t.ActivityId, getActivities().ToArray());
-            getActivities(context);
-            context.SaveChanges();
-
-            //context.db.Events.Add(p => p.EventId, getEvents(context).ToArray());
-            getEvents(context);
-            context.SaveChanges();
+                var result = userStore.CreateAsync(user);
+                var password = new PasswordHasher<ApplicationUser>();
+                password.HashPassword(user, "P@$$w0rd");
+            }
 
         }
 
-        private static List<Activity> getActivities(ApplicationDbContext context)
+        private static List<Activity> getActivities(ZenithContext context)
         {
 
             string Text = "18/10/2016";
@@ -144,7 +158,7 @@ namespace ZenithWebSite.Models
             return activities;
         }
 
-        private static List<Event> getEvents(Data.ApplicationDbContext db)
+        private static List<Event> getEvents(ZenithContext db, ApplicationDbContext context)
         {
 
             TimeSpan FTime = new TimeSpan(08, 30, 0);
@@ -166,7 +180,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/18/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/18/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate1,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Senior’s Golf Tournament")
             });
 
@@ -175,7 +189,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/19/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/19/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate2,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Leadership General Assembly Meeting")
             });
 
@@ -184,7 +198,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/21/2016 17:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/21/2016 19:15", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Youth Bowling Tournament")
             });
 
@@ -193,7 +207,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/21/2016 19:00", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/21/2016 20:00", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Young ladies cooking lessons")
             });
 
@@ -202,7 +216,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/22/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/22/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Youth craft lessons")
             });
 
@@ -211,7 +225,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/22/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/22/2016 12:00", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Youth choir practice")
             });
 
@@ -220,7 +234,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/22/2016 12:00", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/22/2016 13:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Lunch")
             });
 
@@ -229,7 +243,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/23/2016 07:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/23/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Pancake Breakfast")
             });
 
@@ -238,7 +252,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/23/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/23/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Swimming Lessons for the youth")
             });
 
@@ -247,7 +261,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/23/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/23/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Swimming Exercise for parents")
             });
 
@@ -256,7 +270,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/23/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/23/2016 12:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Bingo Tournament")
             });
 
@@ -265,7 +279,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/23/2016 12:00", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/23/2016 13:00", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "BBQ Lunch")
             });
 
@@ -274,7 +288,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/23/2016 13:00", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/23/2016 18:00", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Garage Sale")
             });
 
@@ -285,7 +299,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/25/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/25/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate1,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Senior’s Golf Tournament")
             });
 
@@ -294,7 +308,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/26/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/26/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate2,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Leadership General Assembly Meeting")
             });
 
@@ -303,7 +317,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/28/2016 17:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/28/2016 19:15", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Youth Bowling Tournament")
             });
 
@@ -312,7 +326,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/28/2016 19:00", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/28/2016 20:00", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Young ladies cooking lessons")
             });
 
@@ -321,7 +335,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/29/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/29/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Youth craft lessons")
             });
 
@@ -330,7 +344,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/29/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/29/2016 12:00", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Youth choir practice")
             });
 
@@ -339,7 +353,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/29/2016 12:00", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/29/2016 13:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Lunch")
             });
 
@@ -348,7 +362,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/30/2016 07:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/30/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Pancake Breakfast")
             });
 
@@ -357,7 +371,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/30/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/30/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Swimming Lessons for the youth")
             });
 
@@ -366,7 +380,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/30/2016 08:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/30/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Swimming Exercise for parents")
             });
 
@@ -375,7 +389,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/30/2016 10:30", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/30/2016 12:30", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Bingo Tournament")
             });
 
@@ -384,7 +398,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/30/2016 12:00", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/30/2016 13:00", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "BBQ Lunch")
             });
 
@@ -393,7 +407,7 @@ namespace ZenithWebSite.Models
                 FromDate = DateTime.ParseExact("10/30/2016 13:00", "MM/dd/yyyy HH:mm", null),
                 ToDate = DateTime.ParseExact("10/30/2016 18:00", "MM/dd/yyyy HH:mm", null),
                 DateCreated = myDate3,
-                ApplicationUser = db.Users.First(a => a.UserName == "a"),
+                ApplicationUser = context.Users.First(a => a.UserName == "a"),
                 Activity = db.Activities.First(t => t.ActivityDec == "Garage Sale")
             });
 

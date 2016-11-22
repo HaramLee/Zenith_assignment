@@ -21,9 +21,9 @@ namespace ZenithWebSite.Models
 
         [Display(Name = "Date & To time")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy hh:mm tt}")]
-        [DateDifference]
+       // [DateDifference]
         [DataType(DataType.DateTime)]
-        [FromDateAfterToDate]
+       // [FromDateAfterToDate]
         public DateTime ToDate { get; set; }
 
         [ForeignKey("Activity")]

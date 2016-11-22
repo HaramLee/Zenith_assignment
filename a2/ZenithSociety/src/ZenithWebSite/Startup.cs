@@ -13,6 +13,7 @@ using ZenithWebSite.Data;
 using ZenithWebSite.Models;
 using ZenithWebSite.Services;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.AspNetCore.Identity;
 
 namespace ZenithWebSite
 {
@@ -43,14 +44,19 @@ namespace ZenithWebSite
             // Add framework services.
             var connection = Configuration["Data:DefaultConnection:ConnectionString"];
             services.AddEntityFramework()
-                .AddDbContext<Data.ApplicationDbContext>(options =>
+                .AddDbContext<ApplicationDbContext>(options =>
                  options.UseSqlite(connection));
+                
+            services.AddEntityFramework()
+                .AddDbContext<ZenithContext>(options =>
+                     options.UseSqlite(connection));
 
             //var connection = Configuration["Data:DefaultConnection:ConnectionString"];
             //services.AddDbContext<ZenithContext>(options => options.UseSqlite(connection));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<Data.ApplicationDbContext>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddEntityFrameworkStores<ZenithContext>()
                 .AddDefaultTokenProviders();
 
             services.AddMvc();
@@ -67,7 +73,7 @@ namespace ZenithWebSite
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, Data.ApplicationDbContext context)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, ApplicationDbContext context, ZenithContext z)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -95,7 +101,9 @@ namespace ZenithWebSite
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-            //InitialData.Initialize(context);
+
+
+            InitialData.Initialize(context, z);
         }
     }
 }
